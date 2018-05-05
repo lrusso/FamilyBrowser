@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Family Browser</string>
+    <string name="android_ago_just_now">Justo ahora</string>
+    <string name="album_title_bookmarks">Marcadores</string>
+    <string name="album_title_history">Historial</string>
+    <string name="album_title_home">Inicio</string>
+    <string name="album_untitled">Sin nombre</string>
+    <string name="dialog_title_hint">Ingrese un título</string>
+    <string name="dialog_sign_in_username">Usuario</string>
+    <string name="dialog_sign_in_password">Contraseña</string>
+    <string name="dialog_button_positive">OK</string>
+    <string name="dialog_button_negative">Cancelar</string>
+    <string name="dialog_button_custom">Personalizar</string>
+    <string name="dialog_title_download">¿Desea descargar el archivo?</string>
+    <string name="dialog_title_resubmission">Reenviar</string>
+    <string name="dialog_title_warning">Advertencia</string>
+    <string name="dialog_title_sign_in">Ingresar</string>
+    <string name="dialog_content_resubmission">¿Desea reenviar los datos?</string>
+    <string name="dialog_content_ssl_error">El certificado de este sitio no es seguro. ¿Desea continuar?</string>
+    <string name="dialog_content_upload">De momento, subir archivos es posible en Android 5.0 o superior.</string>
+    <string name="list_empty">No hay marcadores</string>
+    <string name="main_menu_new_tab">Nueva pestaña</string>
+    <string name="main_menu_copy_link">Copiar enlace</string>
+    <string name="main_menu_save">Descargar</string>
+    <string name="main_omnibox_input_hint">Busca o escribe la dirección web</string>
+    <string name="main_about_blank">about:blank</string>
+    <string name="notification_content_holder">Presione para ver las páginas</string>
+    <string name="search_hint">Buscar</string>
+    <string name="toast_add_bookmark_successful">Marcador agregado exitosamente.</string>
+    <string name="toast_add_bookmark_failed">No se puede agregar esta página como marcador.</string>
+    <string name="toast_add_to_home_successful">Página agregada a Inicio.</string>
+    <string name="toast_add_to_home_failed">Error al agregar a Inicio.</string>
+    <string name="toast_already_at_the_front">Ya se encuentra en primer plano.</string>
+    <string name="toast_already_exist_in_home">Ya existe en Inicio.</string>
+    <string name="toast_copy_successful">Enlace copiado exitosamente</string>
+    <string name="toast_delete_bookmark_successful">Marcado eliminado exitosamente.</string>
+    <string name="toast_delete_successful">Elemento eliminado exitosamente.</string>
+    <string name="toast_domain_already_exists">El dominio ya existe.</string>
+    <string name="toast_double_taps_quit">Presione Atrás nuevamente para salir.</string>
+    <string name="toast_input_empty">No ha ingresado ningún texto.</string>
+    <string name="toast_invalid_domain">El dominio no es válido.</string>
+    <string name="toast_load_error">No es posible cargar la URL ingresada.</string>
+    <string name="toast_load_in_background">Cargando en segundo plano...</string>
+    <string name="toast_new_tab_successful">Enlace abierto en una nueva pestaña.\nDeslice hacia abajo desde la barra de direcciones para acceder a las pestañas.</string>
+    <string name="toast_open_file_manager_failed">Error al abrir el Administrador de Archivos.</string>
+    <string name="toast_refresh_failed">No es posible actualizar esta página.</string>
+    <string name="toast_share_failed">No es posible compartir esta página.</string>
+    <string name="toast_start_download">Iniciando descarga...</string>
+    <string name="toast_wait_a_minute">Por favor, aguarde un momento...</string>
+    <string-array name="holder_menu">
+        <item>Adelantar</item>
+        <item>Copiar enlace</item>
+        <item>Compartir</item>
+    </string-array>
+    <string-array name="list_menu">
+        <item>Nueva pestaña</item>
+        <item>Copiar enlace</item>
+        <item>Compartir</item>
+        <item>Editar</item>
+        <item>Eliminar</item>
+    </string-array>
+    <string-array name="main_overflow">
+        <item>Agregar a Inicio</item>
+        <item>Marcadores</item>
+        <item>Buscar en la página</item>
+        <item>Compartir</item>
+        <item>Política de privacidad</item>
+        <item>Acerca de...</item>
+        <item>Salir</item>
+    </string-array>
+    <string name="textWebNotAvailable">SITIO WEB BLOQUEADO</string>
+    <string name="textAbout">Acerca de...</string>
+    <string name="textAboutMessage"><![CDATA[<h3>Family Browser</h3>Copyright &#169; ANOS<br /><br /><b>www.lrusso.com.ar</b><br /><br />por Leonardo Javier Russo.]]></string>
+    <string name="textOK">Aceptar</string>
+    <string name="textPrivacy">Política de privacidad</string>
+	<string name="textPrivacyText">Family Browser Privacy Policy\n\nReleased on Dec 21, 2016\n\nI, Leonardo Javier Russo, regard your information significant and release this Privacy Statement to inform you what information I collect and how I use it to personalize and continually improve you experience.\n\nThis Privacy Statement applies to the App "Family Browser" and its services and does not apply to the product or service that which does not link to this statement or has its privacy statement respectively.\n\n1 - Collecting information\n\na. Personal Information.\n\nI do not collect Personal Information. "Personal Information" is information that identifies you or another person, such as your first name and last name, physical addresses, email addresses, telephone, fax, camera, microphone, GPS, or any information stored within your device.\n\nb. Non-personal Information.\n\nI do not collect your non-personal information when you are using the App "Family Browser" or visiting my Website, including your device information, operation system, logs.\n\nc. Information you provide.\n\nI do not collect your information when you communicate with me.\n\nHow I Use Information\n\na. Personal Information.\n\nI do not store Personal Information and therefore I do not disclose your Personal Information.\n\nb. Non-Personal Information.\n\nI do not sell, trade, or otherwise transfer to outside parties your information. I do not combine Non-Personal Information with Personal Information (such as combining your name with your unique User Device number).\n\nContact Me\n\nIf you have any questions or comments about this Policy or our privacy practices, or to report any violations of the Policy or abuse of the App "Family Browser" or the Website, please contact me at contacto@lrusso.com.ar.\n\nChanges\n\nThis Privacy Policy may change which will not reduce your rights under this Privacy Policy from time to time, I will post any privacy policy changes on this page, so please review it periodically. If you do not agree to any modifications to this Policy, your could immediately stop all use of all the Services. Your continued use of the App "Family Browser" following the posting of any modifications to this Policy will constitute your acceptance of the revised Policy.</string>
+</resources>

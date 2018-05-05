@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Family Browser</string>
+    <string name="android_ago_just_now">Just now</string>
+    <string name="album_title_bookmarks">Bookmarks</string>
+    <string name="album_title_history">History</string>
+    <string name="album_title_home">Home</string>
+    <string name="album_untitled">Untitled</string>
+    <string name="dialog_title_hint">Input Title</string>
+    <string name="dialog_sign_in_username">Username</string>
+    <string name="dialog_sign_in_password">Password</string>
+    <string name="dialog_button_positive">OK</string>
+    <string name="dialog_button_negative">Cancel</string>
+    <string name="dialog_button_custom">Custom</string>
+    <string name="dialog_title_download">Do you want to download the file?</string>
+    <string name="dialog_title_resubmission">Resubmit</string>
+    <string name="dialog_title_warning">Warning</string>
+    <string name="dialog_title_sign_in">Sign in</string>
+    <string name="dialog_content_resubmission">Would you like to resubmit your data?</string>
+    <string name="dialog_content_ssl_error">The certificate of the site is not trusted. Proceed anyway?</string>
+    <string name="dialog_content_upload">Currently, File upload is only supported on Android 5.0 and above.</string>
+    <string name="list_empty">No bookmarks</string>
+    <string name="main_menu_new_tab">New tab</string>
+    <string name="main_menu_copy_link">Copy link</string>
+    <string name="main_menu_save">Download</string>
+    <string name="main_omnibox_input_hint">Search or type URL</string>
+    <string name="main_about_blank">about:blank</string>
+    <string name="notification_content_holder">Click to view pages</string>
+    <string name="search_hint">Search</string>
+    <string name="toast_add_bookmark_successful">Bookmark successfully added.</string>
+    <string name="toast_add_bookmark_failed">Can\'t add this page to bookmark.</string>
+    <string name="toast_add_to_home_successful">Successfully added to Home.</string>
+    <string name="toast_add_to_home_failed">Failed to add to Home.</string>
+    <string name="toast_already_at_the_front">Already at the front.</string>
+    <string name="toast_already_exist_in_home">Already exist in home.</string>
+    <string name="toast_copy_successful">Successfully copied</string>
+    <string name="toast_delete_bookmark_successful">Successfully deleted bookmark.</string>
+    <string name="toast_delete_successful">Successfully deleted.</string>
+    <string name="toast_domain_already_exists">Domain already exists.</string>
+    <string name="toast_double_taps_quit">Press Back again to exit.</string>
+    <string name="toast_input_empty">You haven\'t input any text.</string>
+    <string name="toast_invalid_domain">Invalid domain.</string>
+    <string name="toast_load_error">Can\'t load this URL.</string>
+    <string name="toast_load_in_background">Loading in background...</string>
+    <string name="toast_new_tab_successful">Successfully opened in a new tab.\nSlide down from the toolbar to access every tab.</string>
+    <string name="toast_open_file_manager_failed">Failed to open File Manager.</string>
+    <string name="toast_refresh_failed">Can\'t refresh this page.</string>
+    <string name="toast_share_failed">Can\'t share this page.</string>
+    <string name="toast_start_download">Starting download...</string>
+    <string name="toast_wait_a_minute">Please wait for a moment...</string>
+    <string-array name="holder_menu">
+        <item>Foreground</item>
+        <item>Copy link</item>
+        <item>Share</item>
+    </string-array>
+    <string-array name="list_menu">
+        <item>New tab</item>
+        <item>Copy link</item>
+        <item>Share</item>
+        <item>Edit</item>
+        <item>Delete</item>
+    </string-array>
+    <string-array name="main_overflow">
+        <item>Add to home</item>
+        <item>Bookmarks</item>
+        <item>Find in page</item>
+        <item>Share</item>
+        <item>Privacy policy</item>
+        <item>About</item>
+        <item>Quit</item>
+    </string-array>
+    <string name="textWebNotAvailable">WEBSITE BLOCKED</string>
+    <string name="textAbout">About...</string>
+    <string name="textAboutMessage"><![CDATA[<h3>Family Browser</h3>Copyright &#169; ANOS<br /><br /><b>www.lrusso.com.ar</b><br /><br />by Leonardo Javier Russo.]]></string>
+    <string name="textOK">OK</string>
+    <string name="textPrivacy">Privacy policy</string>
+	<string name="textPrivacyText">Family Browser Privacy Policy\n\nReleased on Dec 21, 2016\n\nI, Leonardo Javier Russo, regard your information significant and release this Privacy Statement to inform you what information I collect and how I use it to personalize and continually improve you experience.\n\nThis Privacy Statement applies to the App "Family Browser" and its services and does not apply to the product or service that which does not link to this statement or has its privacy statement respectively.\n\n1 - Collecting information\n\na. Personal Information.\n\nI do not collect Personal Information. "Personal Information" is information that identifies you or another person, such as your first name and last name, physical addresses, email addresses, telephone, fax, camera, microphone, GPS, or any information stored within your device.\n\nb. Non-personal Information.\n\nI do not collect your non-personal information when you are using the App "Family Browser" or visiting my Website, including your device information, operation system, logs.\n\nc. Information you provide.\n\nI do not collect your information when you communicate with me.\n\nHow I Use Information\n\na. Personal Information.\n\nI do not store Personal Information and therefore I do not disclose your Personal Information.\n\nb. Non-Personal Information.\n\nI do not sell, trade, or otherwise transfer to outside parties your information. I do not combine Non-Personal Information with Personal Information (such as combining your name with your unique User Device number).\n\nContact Me\n\nIf you have any questions or comments about this Policy or our privacy practices, or to report any violations of the Policy or abuse of the App "Family Browser" or the Website, please contact me at contacto@lrusso.com.ar.\n\nChanges\n\nThis Privacy Policy may change which will not reduce your rights under this Privacy Policy from time to time, I will post any privacy policy changes on this page, so please review it periodically. If you do not agree to any modifications to this Policy, your could immediately stop all use of all the Services. Your continued use of the App "Family Browser" following the posting of any modifications to this Policy will constitute your acceptance of the revised Policy.</string>
+</resources>
