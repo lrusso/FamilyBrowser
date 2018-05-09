@@ -7,10 +7,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
-import android.preference.PreferenceManager;
 import android.webkit.*;
-import ar.com.lrusso.familybrowser.Browser.AdBlock;
-import ar.com.lrusso.familybrowser.Database.Record;
 import ar.com.lrusso.familybrowser.Database.RecordAction;
 import ar.com.lrusso.familybrowser.View.NinjaToast;
 import ar.com.lrusso.familybrowser.R;
@@ -41,14 +38,8 @@ public class BrowserUnit {
     public static final String BOOKMARK_TITLE = "{title}";
     public static final String BOOKMARK_URL = "{url}";
     public static final String BOOKMARK_TIME = "{time}";
-    public static final String INTRODUCTION_EN = "ninja_introduction_en.html";
-    public static final String INTRODUCTION_ZH = "ninja_introduction_zh.html";
 
     public static final String SEARCH_ENGINE_GOOGLE = "https://www.google.com/search?q=";
-    public static final String SEARCH_ENGINE_DUCKDUCKGO = "https://duckduckgo.com/?q=";
-    public static final String SEARCH_ENGINE_STARTPAGE = "https://startpage.com/do/search?query=";
-    public static final String SEARCH_ENGINE_BING = "http://www.bing.com/search?q=";
-    public static final String SEARCH_ENGINE_BAIDU = "http://www.baidu.com/s?wd=";
 
     public static final String UA_DESKTOP = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36";
     public static final String URL_ENCODING = "UTF-8";
@@ -121,22 +112,10 @@ public class BrowserUnit {
             query = URLEncoder.encode(query, URL_ENCODING);
         } catch (UnsupportedEncodingException u) {}
 
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
-        String custom = SEARCH_ENGINE_GOOGLE;
         final int i = 0;
         switch (i) {
             case 0:
                 return SEARCH_ENGINE_GOOGLE + query;
-            case 1:
-                return SEARCH_ENGINE_DUCKDUCKGO + query;
-            case 2:
-                return SEARCH_ENGINE_STARTPAGE + query;
-            case 3:
-                return SEARCH_ENGINE_BING + query;
-            case 4:
-                return SEARCH_ENGINE_BAIDU + query;
-            case 5:
-                return custom + query;
             default:
                 return SEARCH_ENGINE_GOOGLE + query;
         }
@@ -235,97 +214,6 @@ public class BrowserUnit {
         }
     }
 
-    public static String exportBookmarks(Context context) {
-    	/*
-        RecordAction action = new RecordAction(context);
-        action.open(false);
-        List<Record> list = action.listBookmarks();
-        action.close();
-
-        String filename = context.getString(R.string.bookmarks_filename);
-        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + SUFFIX_HTML);
-        int count = 0;
-        while (file.exists()) {
-            count++;
-            file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + "." + count + SUFFIX_HTML);
-        }
-
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
-            for (Record record : list) {
-                String type = BOOKMARK_TYPE;
-                type = type.replace(BOOKMARK_TITLE, record.getTitle());
-                type = type.replace(BOOKMARK_URL, record.getURL());
-                type = type.replace(BOOKMARK_TIME, String.valueOf(record.getTime()));
-                writer.write(type);
-                writer.newLine();
-            }
-            writer.close();
-            return file.getAbsolutePath();
-        } catch (Exception e) {
-            return null;
-        }
-        */
-    	return null;
-    }
-
-    public static String exportWhitelist(Context context) {
-    	/*
-        RecordAction action = new RecordAction(context);
-        action.open(false);
-        List<String> list = action.listDomains();
-        action.close();
-
-        String filename = context.getString(R.string.whilelist_filename);
-        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + SUFFIX_TXT);
-        int count = 0;
-        while (file.exists()) {
-            count++;
-            file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), filename + "." + count + SUFFIX_TXT);
-        }
-
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file, false));
-            for (String domain : list) {
-                writer.write(domain);
-                writer.newLine();
-            }
-            writer.close();
-            return file.getAbsolutePath();
-        } catch (Exception e) {
-            return null;
-        }
-        */
-    	return null;
-    }
-
-    public static int importBookmarks(Context context, File file) {return -1;}
-    public static int importWhitelist(Context context, File file) {
-        if (file == null) {
-            return -1;
-        }
-
-        AdBlock adBlock = new AdBlock(context);
-        int count = 0;
-
-        try {
-            RecordAction action = new RecordAction(context);
-            action.open(true);
-            BufferedReader reader = new BufferedReader(new FileReader(file));
-            String line;
-            while ((line = reader.readLine().trim()) != null) {
-                if (!action.checkDomain(line)) {
-                    adBlock.addDomain(line);
-                    count++;
-                }
-            }
-            reader.close();
-            action.close();
-        } catch (Exception e) {}
-
-        return count;
-    }
-
     public static void clearBookmarks(Context context) {
         RecordAction action = new RecordAction(context);
         action.open(true);
@@ -398,19 +286,4 @@ public class BrowserUnit {
         return dir != null && dir.delete();
     }
 
-    private static String getBookmarkTitle(String line) {
-        line = line.substring(0, line.length() - 4); // Remove last </a>
-        int index = line.lastIndexOf(">");
-        return line.substring(index + 1, line.length());
-    }
-
-    private static String getBookmarkURL(String line) {
-        for (String string : line.split(" +")) {
-            if (string.startsWith("href=\"") || string.startsWith("HREF=\"")) {
-                return string.substring(6, string.length() - 1); // Remove href=\" and \"
-            }
-        }
-
-        return "";
-    }
 }

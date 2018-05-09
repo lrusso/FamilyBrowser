@@ -1439,7 +1439,7 @@ public class BrowserActivity extends Activity implements BrowserController
         list.add(getString(R.string.main_menu_copy_link));
         if (result != null && (result.getType() == WebView.HitTestResult.IMAGE_TYPE || result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE))
         	{
-            list.add(getString(R.string.main_menu_save));
+            //list.add(getString(R.string.main_menu_save));
         	}
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
