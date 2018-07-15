@@ -22,6 +22,7 @@ import ar.com.lrusso.familybrowser.Unit.BrowserUnit;
 import ar.com.lrusso.familybrowser.Unit.IntentUnit;
 import ar.com.lrusso.familybrowser.Unit.ViewUnit;
 import ar.com.lrusso.familybrowser.R;
+import ar.com.lrusso.familybrowser.Activity.BrowserActivity;
 
 import java.net.URISyntaxException;
 
@@ -326,7 +327,10 @@ public class NinjaWebView extends WebView implements AlbumController {
     public synchronized void update(String title, String url) {
         album.setAlbumTitle(title);
         if (foreground) {
-            browserController.updateBookmarks();
+        	if (!url.toLowerCase().startsWith("data:")) {
+        		isBlacklisted(url,this);
+        	}
+        	browserController.updateBookmarks();
             browserController.updateInputBox(url);
         }
     }
@@ -379,4 +383,38 @@ public class NinjaWebView extends WebView implements AlbumController {
         }
         return true;
     }
+    
+	private static boolean isBlacklisted(String url, WebView webview)
+	{
+    boolean blacklisted = false;
+    
+    for (int i=0;i<BrowserActivity.blacklist.size();i++)
+		{
+    	if (url.toLowerCase().contains(BrowserActivity.blacklist.get(i)))
+			{
+    		blacklisted = true;
+    		i=BrowserActivity.blacklist.size()+1;
+			}
+		}
+
+    for (int i=0;i<BrowserActivity.words.size();i++)
+		{
+    	if (url.toLowerCase().contains(BrowserActivity.words.get(i)))
+			{
+    		blacklisted = true;
+    		i=BrowserActivity.words.size()+1;
+			}
+		}
+
+    if (blacklisted==true)
+    	{
+		webview.loadData(BrowserActivity.bannedWebsite, "text/html", "utf-8");
+        return true;
+    	}
+    	else
+    	{
+    	return false;
+    	}
+	}
+
 }

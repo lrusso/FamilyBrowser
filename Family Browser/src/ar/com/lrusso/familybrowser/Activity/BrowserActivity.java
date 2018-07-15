@@ -54,12 +54,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.net.URLEncoder;
 import java.util.*;
 
 public class BrowserActivity extends Activity implements BrowserController
 	{
-    private static final List<String> blacklist = new ArrayList<>();
-    private static final List<String> words = new ArrayList<>();
+    public static final List<String> blacklist = new ArrayList<>();
+    public static final List<String> words = new ArrayList<>();
 
     private static final int DOUBLE_TAPS_QUIT_DEFAULT = 2000;
 
@@ -77,7 +78,7 @@ public class BrowserActivity extends Activity implements BrowserController
     private ImageButton switcherAdd;
 
     private RelativeLayout omnibox;
-    private AutoCompleteTextView inputBox;
+    private static AutoCompleteTextView inputBox;
     private ImageButton omniboxBookmark;
     private ImageButton omniboxRefresh;
     private ImageButton omniboxOverflow;
@@ -108,6 +109,8 @@ public class BrowserActivity extends Activity implements BrowserController
     private int shortAnimTime = 0;
     private int longAnimTime = 0;
     private AlbumController currentAlbumController = null;
+    
+    public static String bannedWebsite;
 
     @Override protected void onActivityResult(int requestCode, int resultCode, Intent intent)
     	{
@@ -127,10 +130,13 @@ public class BrowserActivity extends Activity implements BrowserController
         	}
         
         setContentView(R.layout.main);
-        
+                
         loadAssetToList("blacklist.txt",blacklist);
         loadAssetToList("words.txt",words);
 
+        bannedWebsite = loadAssetTextAsString("blacklisted.htm");
+    	bannedWebsite = bannedWebsite.replace("---VALUETOCHANGE---", getResources().getString(R.string.textWebNotAvailable)); 
+        
         create = true;
         shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
         longAnimTime = getResources().getInteger(android.R.integer.config_longAnimTime);
@@ -822,7 +828,7 @@ public class BrowserActivity extends Activity implements BrowserController
 
     private synchronized void addAlbum(String title, final String url, final boolean foreground, final Message resultMsg)
     	{
-        final NinjaWebView webView = new NinjaWebView(this);
+    	final NinjaWebView webView = new NinjaWebView(this);
         webView.setBrowserController(this);
         webView.setFlag(BrowserUnit.FLAG_NINJA);
         webView.setAlbumCover(ViewUnit.capture(webView, dimen144dp, dimen108dp, false, Bitmap.Config.RGB_565));
@@ -1231,11 +1237,11 @@ public class BrowserActivity extends Activity implements BrowserController
             	}
             else if (ninjaWebView.getUrl() != null)
             	{
-                updateInputBox(ninjaWebView.getUrl());
+            	updateInputBox(ninjaWebView.getUrl());
             	}
             else
             	{
-                updateInputBox(ninjaWebView.getOriginalUrl());
+            	updateInputBox(ninjaWebView.getOriginalUrl());
             	}
         	}
     	}
@@ -2082,7 +2088,7 @@ public class BrowserActivity extends Activity implements BrowserController
 			}
 		}
 	
-	private boolean isBlacklisted(String url, WebView webview)
+	public boolean isBlacklisted(String url, WebView webview)
 		{
         boolean blacklisted = false;
         
@@ -2106,12 +2112,17 @@ public class BrowserActivity extends Activity implements BrowserController
 
         if (blacklisted==true)
         	{
-        	String blacklistedHTML = loadAssetTextAsString("blacklisted.htm");
-        	blacklistedHTML = blacklistedHTML.replace("---VALUETOCHANGE---", getResources().getString(R.string.textWebNotAvailable)); 
-    		webview.loadData(blacklistedHTML, "text/html", "utf-8");
+    		webview.loadData(bannedWebsite, "text/html", "utf-8");
     		if (!url.toLowerCase().startsWith("http:") && !url.toLowerCase().startsWith("https:"))
     			{
-    			url = "http://" + url;
+    			try
+    				{
+        			url = "https://www.google.com/search?q=" + URLEncoder.encode(url,"UTF-8");
+    				}
+    				catch(Exception e)
+    				{
+            		url = "https://www.google.com/search?q=" + url;
+    				}
     			}
             inputBox.setText(Html.fromHtml(BrowserUnit.urlWrapper(url)), EditText.BufferType.SPANNABLE);
             return true;
