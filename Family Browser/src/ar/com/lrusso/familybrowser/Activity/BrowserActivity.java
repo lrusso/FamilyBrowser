@@ -30,6 +30,7 @@ import android.view.animation.AnimationUtils;
 import android.view.animation.DecelerateInterpolator;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.URLUtil;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
@@ -54,6 +55,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.net.URL;
 import java.net.URLEncoder;
 import java.util.*;
 
@@ -2113,15 +2115,22 @@ public class BrowserActivity extends Activity implements BrowserController
         if (blacklisted==true)
         	{
     		webview.loadData(bannedWebsite, "text/html", "utf-8");
-    		if (!url.toLowerCase().startsWith("http:") && !url.toLowerCase().startsWith("https:"))
+    		if (!url.toLowerCase().startsWith("http://") && !url.toLowerCase().startsWith("https://"))
     			{
-    			try
+    			if (isURL("http://" + url)==true && url.contains("."))
     				{
-        			url = "https://www.google.com/search?q=" + URLEncoder.encode(url,"UTF-8");
+    				url = "http://" + url;
     				}
-    				catch(Exception e)
+    				else
     				{
-            		url = "https://www.google.com/search?q=" + url;
+    				try
+    					{
+    					url = "https://www.google.com/search?q=" + URLEncoder.encode(url,"UTF-8");
+    					}
+    					catch(Exception e)
+    					{
+    					url = "https://www.google.com/search?q=" + url;
+    					}
     				}
     			}
             inputBox.setText(Html.fromHtml(BrowserUnit.urlWrapper(url)), EditText.BufferType.SPANNABLE);
@@ -2180,5 +2189,18 @@ public class BrowserActivity extends Activity implements BrowserController
 				{
 				}
 			}).show();
-		}	
+		}
+	
+	public static boolean isURL(String url)
+		{
+	    try
+	    	{
+	        new URL(url);
+	        return true;
+	    	}
+	    catch (Exception e) 
+	    	{
+	        return false;
+	    	}
+		}
 	}
