@@ -2161,19 +2161,8 @@ public class BrowserActivity extends Activity implements BrowserController
 	
 	private void clickInAbout()
 		{
-		String years = "";
 		String value = getResources().getString(R.string.textAboutMessage);
-		int lastTwoDigits = Calendar.getInstance().get(Calendar.YEAR) % 100;
-		if (lastTwoDigits<=5)
-			{
-			years = "2005";
-			}
-			else
-			{
-			years ="2005 - 20" + String.valueOf(lastTwoDigits).trim();
-			}
-
-		value = value.replace("ANOS", years);
+		value = value.replace("APPNAME",getResources().getString(R.string.app_name));
 
 		TextView msg = new TextView(this);
 		msg.setText(Html.fromHtml(value));
@@ -2184,11 +2173,11 @@ public class BrowserActivity extends Activity implements BrowserController
 		msg.setTextSize(size);
 
 		new AlertDialog.Builder(this).setTitle(getResources().getString(R.string.textAbout)).setView(msg).setIcon(R.drawable.ic_launcher).setPositiveButton(getResources().getString(R.string.textOK),new DialogInterface.OnClickListener()
-			{
-			public void onClick(DialogInterface dialog,int which)
-				{
-				}
-			}).show();
+            {
+            public void onClick(DialogInterface dialog,int which)
+                {
+                }
+            }).show();
 		}
 	
 	public static boolean isURL(String url)
